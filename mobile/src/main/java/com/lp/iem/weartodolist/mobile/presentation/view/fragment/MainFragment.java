@@ -1,13 +1,13 @@
-package com.lp.iem.weartodolist.presentation.view.fragment;
+package com.lp.iem.weartodolist.mobile.presentation.view.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.lp.iem.weartodolist.R;
-import com.lp.iem.weartodolist.presentation.presenter.MainPresenter;
-import com.lp.iem.weartodolist.presentation.view.MainView;
+import com.lp.iem.weartodolist.mobile.R;
+import com.lp.iem.weartodolist.mobile.presentation.presenter.MainPresenter;
+import com.lp.iem.weartodolist.mobile.presentation.view.MainView;
 
 /**
  * Created by axell on 04/05/2017.

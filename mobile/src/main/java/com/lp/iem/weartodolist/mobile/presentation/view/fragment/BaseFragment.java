@@ -1,4 +1,4 @@
-package com.lp.iem.weartodolist.presentation.view.fragment;
+package com.lp.iem.weartodolist.mobile.presentation.view.fragment;
 
 /**
  * Created by axell on 04/05/2017.

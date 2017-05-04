@@ -1,4 +1,4 @@
-package com.lp.iem.weartodolist.presentation.view.activity;
+package com.lp.iem.weartodolist.mobile.presentation.view.activity;
 
 /**
  * Created by axell on 04/05/2017.

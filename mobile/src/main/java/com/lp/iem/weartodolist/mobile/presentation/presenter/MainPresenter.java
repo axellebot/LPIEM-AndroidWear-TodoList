@@ -1,6 +1,6 @@
-package com.lp.iem.weartodolist.presentation.presenter;
+package com.lp.iem.weartodolist.mobile.presentation.presenter;
 
-import com.lp.iem.weartodolist.presentation.view.MainView;
+import com.lp.iem.weartodolist.mobile.presentation.view.MainView;
 
 /**
  * Created by axell on 04/05/2017.

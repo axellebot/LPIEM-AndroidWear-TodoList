@@ -1,9 +1,9 @@
-package com.lp.iem.weartodolist.presentation.view.activity;
+package com.lp.iem.weartodolist.mobile.presentation.view.activity;
 
 import android.os.Bundle;
 
-import com.lp.iem.weartodolist.R;
-import com.lp.iem.weartodolist.presentation.view.fragment.MainFragment;
+import com.lp.iem.weartodolist.mobile.R;
+import com.lp.iem.weartodolist.mobile.presentation.view.fragment.MainFragment;
 
 public class MainActivity extends BaseActivity {
 

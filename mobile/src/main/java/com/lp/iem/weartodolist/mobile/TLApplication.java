@@ -1,12 +1,12 @@
-package com.lp.iem.weartodolist;
+package com.lp.iem.weartodolist.mobile;
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 /**
  * Created by axell on 04/05/2017.
  */
 
-public class TLApplication extends Application {
+public class TLApplication extends MultiDexApplication {
     private static TLApplication application;
 
     public static TLApplication app() {
