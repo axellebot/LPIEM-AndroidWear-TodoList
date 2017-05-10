@@ -1,4 +1,4 @@
-package com.lp.iem.weartodolist;
+package com.lp.iem.weartodolist.wear;
 
 import android.app.Activity;
 import android.os.Bundle;
