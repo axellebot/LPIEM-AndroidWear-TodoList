@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WearTodoList</string>
+
+    <!-- Navigation Drawer -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_user_log_in">Log in</strin g>
+    <string name="default_username">android.studio@android.com</string>
 </resources>
