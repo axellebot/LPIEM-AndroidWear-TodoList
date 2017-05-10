@@ -3,8 +3,8 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/navigation_drawer_log_in"
+            android:id="@+id/navigation_drawer_log_out"
             android:icon="@drawable/ic_lock_white_24dp"
-            android:title="@string/navigation_drawer_user_log_in" />
+            android:title="@string/navigation_drawer_user_log_out" />
     </group>
 </menu>
