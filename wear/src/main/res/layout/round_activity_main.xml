@@ -3,11 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mobile.presentation.view.activity.MainActivity"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
     tools:deviceIds="wear_round">
 
     <android.support.wearable.view.WearableRecyclerView
         android:id="@+id/activity_main_wear_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:paddingTop="64dp"
+        android:paddingBottom="64dp"
+        android:clipToPadding="false"/>
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.wearable.view.WatchViewStub;
 import android.support.wearable.view.WearableRecyclerView;
 
+import com.lp.iem.weartodolist.TodoItemViewModel;
 import com.lp.iem.weartodolist.ui.adapter.TodoListAdapter;
 
 import java.util.ArrayList;
