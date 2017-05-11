@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.lp.iem.weartodolist"
+        applicationId "com.lp.iem.weartodolist.mobile"
         minSdkVersion 21
         targetSdkVersion 25
         versionCode 1
@@ -53,8 +53,8 @@ dependencies {
 
     //Custom
     compile "com.google.android.gms:play-services:10.2.4"
-    compile "com.jakewharton:butterknife-compiler:8.4.0"
-    compile "com.jakewharton:butterknife:8.4.0"
+    annotationProcessor "com.jakewharton:butterknife-compiler:8.5.1"
+    compile "com.jakewharton:butterknife:8.5.1"
     compile "me.grantland:autofittextview:0.2.1"
     compile "com.afollestad.material-dialogs:core:0.9.0.2"
     compile "com.afollestad.material-dialogs:commons:0.9.0.2"
