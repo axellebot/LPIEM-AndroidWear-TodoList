@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "136368696862-gvsbgfl20emvuf7r91ibssk5a55cfd9t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lp.iem.weartodolist.mobile",
+            "certificate_hash": "666aa22970cd6801d579866c4d791451133cbfa8"
+          }
+        },
+        {
           "client_id": "136368696862-c8vdfv0g5is1sfmk0ljfir8hi7kfttps.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.lp.iem.weartodolist.mobile.R;
-import com.lp.iem.weartodolist.mobile.model.TodoModel;
+import com.lp.iem.weartodolist.mobile.entity.TodoEntity;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -19,15 +19,15 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Adaptar that manages a collection of {@link TodoModel}.
+ * Adaptar that manages a collection of {@link TodoEntity}.
  */
 public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoViewHolder> {
 
     private final LayoutInflater layoutInflater;
-    private List<TodoModel> todoCollection;
+    private List<TodoEntity> todoCollection;
     private OnItemClickListener onItemClickListener;
 
-    TodoListAdapter(Context context) {
+    public TodoListAdapter(Context context) {
         this.layoutInflater = LayoutInflater.from(context);
         this.todoCollection = Collections.emptyList();
     }
@@ -45,17 +45,17 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoVi
 
     @Override
     public void onBindViewHolder(TodoViewHolder holder, final int position) {
-        final TodoModel todoModel = this.todoCollection.get(position);
+        final TodoEntity todoEntity = this.todoCollection.get(position);
         if (holder instanceof TodoViewHolder) {
             TodoViewHolder todoViewHolder = (TodoViewHolder) holder;
-            todoViewHolder.tvLabel.setText(todoModel.getLabel());
-            todoViewHolder.tvDescription.setText(todoModel.getDescription());
-            todoViewHolder.checkBox.setActivated(todoModel.isDone());
+            todoViewHolder.tvLabel.setText(todoEntity.getLabel());
+            todoViewHolder.tvDescription.setText(todoEntity.getDescription());
+            todoViewHolder.checkBox.setActivated(todoEntity.isDone());
             todoViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (TodoListAdapter.this.onItemClickListener != null) {
-                        TodoListAdapter.this.onItemClickListener.onTodoItemClicked(todoModel);
+                        TodoListAdapter.this.onItemClickListener.onTodoItemClicked(todoEntity);
                     }
                 }
             });
@@ -67,9 +67,9 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoVi
         return position;
     }
 
-    public void setTodoCollection(Collection<TodoModel> TodoCollection) {
+    public void setTodoCollection(Collection<TodoEntity> TodoCollection) {
         this.validateTodosCollection(TodoCollection);
-        this.todoCollection = (List<TodoModel>) TodoCollection;
+        this.todoCollection = (List<TodoEntity>) TodoCollection;
         this.notifyDataSetChanged();
     }
 
@@ -77,14 +77,19 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoVi
         this.onItemClickListener = onItemClickListener;
     }
 
-    private void validateTodosCollection(Collection<TodoModel> TodoCollection) {
+    private void validateTodosCollection(Collection<TodoEntity> TodoCollection) {
         if (TodoCollection == null) {
             throw new IllegalArgumentException("The list cannot be null");
         }
     }
 
     public interface OnItemClickListener {
-        void onTodoItemClicked(TodoModel TodoModel);
+        void onTodoItemClicked(TodoEntity TodoEntity);
+    }
+
+    public void addItem(TodoEntity todoEntity){
+        todoCollection.add(todoEntity);
+        notifyDataSetChanged();
     }
 
     static class TodoViewHolder extends RecyclerView.ViewHolder {
