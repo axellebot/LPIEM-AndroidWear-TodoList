@@ -1,4 +1,4 @@
-package com.lp.iem.weartodolist.mobile.entity;
+package com.lp.iem.weartodolist.mobile.data.entity;
 
 /**
  * Created by axell on 11/05/2017.

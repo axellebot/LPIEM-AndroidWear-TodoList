@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.lp.iem.weartodolist.mobile.R;
-import com.lp.iem.weartodolist.mobile.entity.TodoEntity;
+import com.lp.iem.weartodolist.mobile.data.entity.TodoEntity;
 import com.lp.iem.weartodolist.mobile.presentation.presenter.MainPresenter;
 import com.lp.iem.weartodolist.mobile.presentation.view.MainView;
 import com.lp.iem.weartodolist.mobile.presentation.view.adapter.TodoListAdapter;
@@ -25,7 +25,8 @@ public class MainFragment extends BaseFragment implements MainView {
 
     private TodoListAdapter todoListAdapter;
 
-    @BindView(R.id.fragment_main_recylceview) RecyclerView recyclerView;
+    @BindView(R.id.fragment_main_recylceview)
+    RecyclerView recyclerView;
 
     public static MainFragment newInstance() {
 
@@ -45,16 +46,28 @@ public class MainFragment extends BaseFragment implements MainView {
         todoListAdapter = new TodoListAdapter(getActivity());
         recyclerView.setAdapter(todoListAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mainPresenter.setupView();
+        mainPresenter.onCreateView(this);
         return fragmentView;
     }
 
     private void initializeInjection() {
-        mainPresenter = new MainPresenter(this);
+        mainPresenter = new MainPresenter();
+    }
+
+
+    @Override
+    public void setTodo(TodoEntity todoEntity) {
+        todoListAdapter.addItem(todoEntity);
     }
 
     @Override
-    public void displayItem(TodoEntity todoEntity) {
+    public void changeTodo(TodoEntity todoEntity) {
+        todoListAdapter.deleteItem(todoEntity);
         todoListAdapter.addItem(todoEntity);
+    }
+
+    @Override
+    public void removeTodo(TodoEntity todoEntity) {
+        todoListAdapter.deleteItem(todoEntity);
     }
 }

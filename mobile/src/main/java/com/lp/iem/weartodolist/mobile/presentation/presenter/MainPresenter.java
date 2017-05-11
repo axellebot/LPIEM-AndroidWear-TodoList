@@ -1,35 +1,28 @@
 package com.lp.iem.weartodolist.mobile.presentation.presenter;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-import com.lp.iem.weartodolist.mobile.TLApplication;
-import com.lp.iem.weartodolist.mobile.entity.TodoEntity;
+import com.lp.iem.weartodolist.mobile.data.dao.FirebaseTodoDao;
+import com.lp.iem.weartodolist.mobile.data.dao.TodoDao;
+import com.lp.iem.weartodolist.mobile.data.entity.TodoEntity;
 import com.lp.iem.weartodolist.mobile.presentation.view.MainView;
-
-import java.util.List;
 
 
 /**
  * Created by axell on 04/05/2017.
  */
 
-public class MainPresenter implements Presenter {
+public class MainPresenter implements Presenter, TodoDao.Listener {
     private MainView mainView;
 
 
     public static final String CHILD_TODO_ITEMS = "todoItems";
     public static final String CHILD_USERS = "users";
-    public static final String CHILD_DESCRIPTION = "description";
-    public static final String CHILD_DONE = "done";
-    public static final String CHILD_LABEL = "label";
 
-    public MainPresenter(MainView mainView) {
-        this.mainView = mainView;
+    public MainPresenter() {
     }
-    public void setupView(){
-        first();
+
+    public void onCreateView(MainView mainView) {
+        this.mainView = mainView;
+        FirebaseTodoDao.getInstance().subscribe(this);
     }
 
     @Override
@@ -47,53 +40,18 @@ public class MainPresenter implements Presenter {
 
     }
 
-    private void first() {
-        if(TLApplication.app().getFirebaseAuth().getCurrentUser() == null){
-            return;
-        }
-        Query todoListUid = TLApplication.app().getFirebaseDatabase()
-                .getReference(CHILD_USERS)
-                .child(TLApplication.app().getFirebaseAuth().getCurrentUser().getUid())
-                .child(CHILD_TODO_ITEMS);
-
-        todoListUid.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                List<String> listUids = (List<String>) dataSnapshot.getValue();
-                System.out.println(listUids);
-                second(listUids);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    @Override
+    public void setTodo(TodoEntity todo) {
+        mainView.setTodo(todo);
     }
 
-    private void second(List<String> listUids) {
-        for (final String uid : listUids) {
-            final Query todoListUid = TLApplication.app().getFirebaseDatabase()
-                    .getReference(CHILD_TODO_ITEMS)
-                    .child(uid);
-            todoListUid.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-
-                    TodoEntity todoEntity = (TodoEntity) dataSnapshot.getValue(TodoEntity.class);
-                    todoEntity.setUid(uid);
-                    display(todoEntity);
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-
-                }
-            });
-        }
+    @Override
+    public void changeTodo(TodoEntity todo) {
+        mainView.changeTodo(todo);
     }
 
-    private void display(TodoEntity todoEntity) {
-        mainView.displayItem(todoEntity);
+    @Override
+    public void removeTodo(TodoEntity todo) {
+        mainView.removeTodo(todo);
     }
 }

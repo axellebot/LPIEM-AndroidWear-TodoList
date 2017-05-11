@@ -1,4 +1,4 @@
-package com.lp.iem.weartodolist.mobile.entity;
+package com.lp.iem.weartodolist.mobile.data.entity;
 
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
@@ -81,5 +81,11 @@ public class TodoEntity extends Entity {
 
     public void setMapping(Map<String, Boolean> mapping) {
         this.mapping = mapping;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        TodoEntity todoEntity = (TodoEntity) obj;
+        return (this.uid == todoEntity.uid);
     }
 }

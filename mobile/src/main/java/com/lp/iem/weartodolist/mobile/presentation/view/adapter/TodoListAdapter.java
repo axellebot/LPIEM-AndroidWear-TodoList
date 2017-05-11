@@ -9,7 +9,7 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.lp.iem.weartodolist.mobile.R;
-import com.lp.iem.weartodolist.mobile.entity.TodoEntity;
+import com.lp.iem.weartodolist.mobile.data.entity.TodoEntity;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -89,6 +89,10 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoVi
 
     public void addItem(TodoEntity todoEntity){
         todoCollection.add(todoEntity);
+        notifyDataSetChanged();
+    }
+    public void deleteItem(TodoEntity todoEntity){
+        todoCollection.remove(todoEntity);
         notifyDataSetChanged();
     }
 
