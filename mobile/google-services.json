@@ -8,40 +8,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:136368696862:android:194f050622d10368",
-        "android_client_info": {
-          "package_name": "com.lp.iem.weartodolist"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "136368696862-174np7ch7mq9f11cfbntfl6oj6vllkcf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA1eucmUbmylOE1Giop2Q2vlhhv2C-d6B0"
-        },
-        {
-          "current_key": "AIzaSyCGD96SChiIl4-Wv-G22Df1HEt72LqJY3I"
-        }
-      ],
-      "services": {
-        "analytics_service": {
-          "status": 1
-        },
-        "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:136368696862:android:a83678315eb4d81d",
         "android_client_info": {
           "package_name": "com.lp.iem.weartodolist.mobile"
@@ -49,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "136368696862-c8vdfv0g5is1sfmk0ljfir8hi7kfttps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lp.iem.weartodolist.mobile",
+            "certificate_hash": "a6da3a5baee9565e766a2d55c5a570b28badfa4e"
+          }
+        },
+        {
           "client_id": "136368696862-174np7ch7mq9f11cfbntfl6oj6vllkcf.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -66,8 +40,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136368696862-174np7ch7mq9f11cfbntfl6oj6vllkcf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
